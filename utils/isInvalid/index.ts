@@ -98,8 +98,11 @@ export default function useIsInValid(value: string, setCurrentMessage: Dispatch<
         "AS", "BC", "BS", "CC", "CL", "CM", "CS", "CH", "DF", "DG", "GT",
         "GR", "HG", "JC", "MC", "MS", "MN", "NL", "OC", "NT", "PL", "QR", "QT",
         "SL", "SP", "SR", "TC", "TS", "VZ", "YN", "ZS", "NE",
-      ]
-      if (!entities.includes(fedarativeEntity)){
+      ]; 
+      if (value.length === 12 && !entities.some(entity => entity.startsWith(fedarativeEntity))){
+        return [true, "Ninguna entidad federativa comienza con esas letras."];
+      }
+      if (value.length > 12 && !entities.includes(fedarativeEntity) ){
         return [true, "La entidad federativa no es válida."];
       }
     }
