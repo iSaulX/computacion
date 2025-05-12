@@ -88,8 +88,8 @@ export default function useIsInValid(value: string, setCurrentMessage: Dispatch<
     if (value.length > 10 && value.length < 12){
       
       const gender = value.slice(10, 11);
-      if (!/^[HF]$/.test(gender)){
-        return [true, "El sexo debe ser 'H' o 'F'."];
+      if (!/^[HM]$/.test(gender)){
+        return [true, "El sexo debe ser 'H' o 'M'."];
       }
     }
     if (value.length > 11 && value.length < 14){
