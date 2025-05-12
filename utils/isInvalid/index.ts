@@ -28,7 +28,7 @@ export default function useIsInValid(value: string, setCurrentMessage: Dispatch<
     if (!yearRegex.test(value.slice(5, 6)) && value.length > 4){
       return [true, "El año debe ser un número de dos dígitos."]
     }
-    if (value.length > 6 && value.length <  9){
+    if (value.length > 6){
       month = parseInt(value.slice(6, 8)); 
 
       if (isNaN(month)){
@@ -50,7 +50,7 @@ export default function useIsInValid(value: string, setCurrentMessage: Dispatch<
       }
       
     }
-    if (value.length > 8 && value.length < 11){
+    if (value.length > 8){
       const day = parseInt(value.slice(8, 10));
       month = parseInt(value.slice(6, 8));
       if (isNaN(day)){
@@ -92,7 +92,7 @@ export default function useIsInValid(value: string, setCurrentMessage: Dispatch<
         return [true, "El sexo debe ser 'H' o 'M'."];
       }
     }
-    if (value.length > 11 && value.length < 14){
+    if (value.length > 11){
       const fedarativeEntity = value.slice(11, 13);
       const entities: string[] = [
         "AS", "BC", "BS", "CC", "CL", "CM", "CS", "CH", "DF", "DG", "GT",
@@ -106,14 +106,14 @@ export default function useIsInValid(value: string, setCurrentMessage: Dispatch<
         return [true, "La entidad federativa no es válida."];
       }
     }
-    if(value.length > 13 && value.length < 17){
+    if(value.length > 13){
       const consonantsRegex = /^[A-Z]*$/;
       const consonants = value.slice(13, 16);
       if (!consonantsRegex.test(consonants)){
         return [true, "Las consonantes deben ser letras mayúsculas y sin espacios."];
       }
     }
-    if (value.length > 16 && value.length < 18){
+    if (value.length > 16){
       const homonimia = value.slice(16, 17);
       if (!/^[0-9A-Z]*$/.test(homonimia)){
         return [true, "El diferenciador de homonimia debe ser un número."];
